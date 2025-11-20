@@ -1,0 +1,48 @@
+_min_copier_version: "9.0.0"
+_subdirectory: "template"
+
+project_name:
+  type: str
+  help: Display name of the project.
+
+project_slug:
+  type: str
+  help: Slugified project identifier used for the repository name and top-level folder.
+  default: "{{ project_name|lower|replace(' ', '-') }}"
+
+module_name:
+  type: str
+  help: Python package import name.
+  default: "{{ project_name|lower|replace(' ', '_')|replace('-', '_') }}"
+
+author_name:
+  type: str
+  help: Primary author name.
+  default: "Your name"
+
+description:
+  type: str
+  help: Short project description.
+  default: "A short description of this project."
+
+license:
+  type: str
+  help: Select an open source license.
+  choices:
+    - MIT
+    - Apache-2.0
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - Unlicense
+  default: MIT
+
+python_version:
+  type: str
+  help: Minimum supported Python version.
+  choices:
+    - "3.10"
+    - "3.11"
+    - "3.12"
+    - "3.13"
+    - "3.14"
+  default: "3.12"

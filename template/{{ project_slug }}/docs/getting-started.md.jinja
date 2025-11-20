@@ -1,0 +1,21 @@
+# Getting Started
+
+This guide helps you build and preview the documentation locally.
+
+## Build the docs
+
+```bash
+uv run sphinx-build -b html docs docs/_build/html
+```
+
+## Live preview while editing
+
+```bash
+uv run sphinx-autobuild docs docs/_build/html
+```
+
+## Writing content
+
+- Write prose in Markdown or reStructuredText.
+- Reference API members directly; docstrings are pulled in via `autodoc`.
+- Keep long code examples in `examples/` (if any) and include them with code blocks.
