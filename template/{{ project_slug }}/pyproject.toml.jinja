@@ -99,3 +99,6 @@ version_scheme = "no-guess-dev"
 
 [tool.hatch.build.hooks.vcs]
 version-file = "src/{{ module_name }}/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{ module_name }}"]
