@@ -26,4 +26,6 @@ ENV PATH="/home/vscode/.local/bin:${PATH}" \
 
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
+RUN uv tool install prek >/dev/null
+
 CMD ["sleep", "infinity"]

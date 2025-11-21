@@ -1,11 +1,10 @@
 # python-package Copier Template
 
-`python-package` is a Copier template that bootstraps a modern Python package with a single command. It ships with `uv` for dependency management, Ruff + mypy + Bandit for static analysis, pytest, Dev Container support, and pre-commit hooks so you can go from `copier copy` to CI-ready code immediately.
+`python-package` is a Copier template that bootstraps a modern Python package with a single command. It ships with `uv` for dependency management, Ruff + mypy + Bandit for static analysis, pytest, Dev Container support, and PreK hooks so you can go from `copier copy` to CI-ready code immediately.
 
 ## Prerequisites
 
-- Python 3.10+
-- Copier CLI (`brew install copier`, etc.)
+- Copier CLI (`pipx install copier`, `brew install copier`, etc.)
 
 ## Usage
 
@@ -16,16 +15,15 @@
    copier copy gh:stfukuda/python-package my-new-project
    ```
 
-3. Answer the prompts. Copier creates a directory named after `{{ project_slug }}` and fills it with the full project layout. After generation, follow the new project’s `README.md` to finish setup.
+3. Answer the prompts. Copier creates a directory named after `{{ project_slug }}` and fills it with the full project layout. After generation, open the repo in the Dev Container and run `just setup` manually to sync dependencies (see the generated README for details).
 
 ## What’s Included
 
-- `uv` + `Justfile` workflows (`just setup`, `just check`, `just test`, `just build`, etc.)
-- Ruff formatting/linting, mypy type checking, Bandit security scans, pytest with coverage + xdist
-- Dev Container configuration (VS Code + Dev Container CLI) and pre-commit hooks
-- GitHub Actions workflows for linting, testing, and releasing to PyPI / TestPyPI via tags
-- `hatch-vcs`-powered versioning so package versions come directly from your Git tags
-- `src/{{ module_name }}` package layout, `py.typed`, `.env` example, and other best-practice defaults
+- Src layout with `pyproject.toml`, README, sample tests, docs scaffolding, `.env`, and `py.typed`
+- Justfile workflows (`just setup`, `just check`, `just test`, etc.) powered by `uv` + `PreK`
+- Ruff + mypy + Bandit + pytest (coverage + xdist) wired into both Justfile and CI
+- Dev Container image bootstrapped with `uv`, `just`, `prek`, and all template tooling pre-installed
+- GitHub Actions for lint/test/release plus `hatch-vcs` tag-driven versioning
 
 ## Updating an Existing Project
 

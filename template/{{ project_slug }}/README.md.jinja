@@ -23,14 +23,15 @@ Describe how to use the library in this part.
   - [Visual Studio Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   - The [Dev Container CLI](https://github.com/devcontainers/cli) (`npm install -g @devcontainers/cli`)
 - [Just](https://github.com/casey/just) task runner (optional but recommended)
+- [PreK](https://github.com/chriskuehl/prek) (`uv tool install prek`) if you run hooks outside the Dev Container; the container already installs it
 
-> The Dev Container image installs both `uv` and `just`, so host installation of `just` is only needed if you plan to run the recipes outside the container.
+> The Dev Container image installs `uv`, `just`, and `prek`, so host installation is only needed if you plan to run the recipes outside the container.
 
 ### Getting started (VS Code)
 
 1. Open the repository in VS Code.
 2. When prompted, select **“Reopen in Container”** (or run the **Dev Containers: Reopen in Container** command).
-3. Wait for the container build to complete. The `postCreateCommand` automatically runs `just setup`, which syncs dependencies and installs pre-commit hooks.
+3. Wait for the container build to complete, then run `just setup` manually inside the container to sync dependencies and install PreK hooks.
 
 ### Getting started (Dev Container CLI)
 
@@ -43,9 +44,9 @@ Run additional commands as needed, for example `devcontainer exec --workspace-fo
 
 ### Common workflows (inside the container)
 
-- `just setup` – initialize Git (if available), create the `dev` branch, install deps, and bootstrap pre-commit hooks
-- `just sync` – refresh dependencies via `uv sync` and re-install pre-commit hooks when Git is available
-- `just update` – upgrade locked dependencies + pre-commit hooks and commit the changes
+- `just setup` – initialize Git (if available), create the `dev` branch, install deps, and bootstrap PreK hooks
+- `just sync` – refresh dependencies via `uv sync` and re-install PreK hooks when Git is available
+- `just update` – upgrade locked dependencies + PreK hooks and commit the changes
 - `just check` – format & lint/type-check the codebase (Ruff + mypy + Bandit)
 - `just test` – execute the test suite with pytest
 - `just build` – build distributable artifacts into dist/
@@ -55,7 +56,7 @@ Run additional commands as needed, for example `devcontainer exec --workspace-fo
 
 ### Cleaning up
 
-Remove cached artifacts and virtual environments with:
+Remove cached artifacts and build caches with:
 
 ```shell
 just clean
