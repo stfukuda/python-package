@@ -89,6 +89,7 @@ line-length = 88
 
 [tool.pytest.ini_options]
 pythonpath = "src"
+addopts = "--ignore=src/{{ module_name }}/_version.py"
 
 [tool.hatch.version]
 source = "vcs"

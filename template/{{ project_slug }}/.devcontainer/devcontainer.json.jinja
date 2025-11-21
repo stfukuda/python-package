@@ -11,9 +11,8 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "mounts": [
-    "source=uv-cache,target=/workspace/.cache/uv,type=volume"
+    "source=uv-cache,target=/home/vscode/.cache/uv,type=volume"
   ],
-  "postCreateCommand": "set -euxo pipefail && just setup",
   "customizations": {
     "vscode": {
       "settings": {
