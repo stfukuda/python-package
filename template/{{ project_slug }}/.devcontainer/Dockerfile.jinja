@@ -13,15 +13,14 @@ RUN apt-get update \
         just \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /workspace/.cache/uv /home/vscode/.venv && chown -R vscode:vscode /workspace /home/vscode/.venv
-
 USER vscode
 WORKDIR /workspace
 
+RUN mkdir -p /home/vscode/.cache/uv
+
 ENV PATH="/home/vscode/.local/bin:${PATH}" \
-    UV_CACHE_DIR=/workspace/.cache/uv \
     UV_LINK_MODE=copy \
-    UV_PROJECT_ENV=/home/vscode/.venv \
+    UV_PROJECT_ENVIRONMENT=/home/vscode/.venv \
     UV_NO_MANAGED_PYTHON=1 \
     UV_PYTHON_DOWNLOADS=never
 
