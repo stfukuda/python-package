@@ -141,6 +141,9 @@ venv.bak/
 # Documentation builds (currently unused)
 # /site
 
+# Generated version metadata
+_version.py
+
 # mypy
 .mypy_cache/
 .dmypy.json
