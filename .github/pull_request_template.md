@@ -24,7 +24,9 @@ List linked issues (e.g., “Closes #123”) or write “None”.
 Template smoke-test (main verification):
 
 - [ ] `copier copy --vcs-ref dev gh:stfukuda/python-package destination`
-- [ ] `cd destination && just setup`
+- [ ] `cd destination`
+- [ ] Work inside the Dev Container (reopen or attach) so commands run there
+- [ ] `just setup`
 - [ ] `just sync`
 - [ ] `just format && just lint && just check && just test`
 - [ ] `just docs` / `just docs-serve`
