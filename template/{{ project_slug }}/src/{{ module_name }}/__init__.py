@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import subprocess
+import subprocess  # nosec B404
 from importlib import metadata
 
 __all__ = ["__version__", "hello"]
@@ -22,7 +22,7 @@ def _detect_version() -> str:
 
 def _detect_version_from_git() -> str | None:
     try:
-        completed = subprocess.run(
+        completed = subprocess.run(  # nosec B603 B607
             ["git", "describe", "--tags", "--abbrev=0"],
             check=True,
             capture_output=True,
