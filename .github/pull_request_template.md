@@ -1,16 +1,14 @@
 ## Summary
 
-Explain what this PR changes at a high level.
+Describe what changed in 1–2 sentences.
 
 ## Motivation
 
-Describe why this change is needed or which problem it solves.
-If the linked issue already explains the motivation, write “See linked issue.”
+Explain why this change is needed. “See linked issue.” is fine if applicable.
 
 ## Related Issues / Tickets
 
-List related issues or tickets (e.g., “Closes #123”).
-Write “None” if there is no linked issue.
+List linked issues (e.g., “Closes #123”) or write “None”.
 
 ## Type of Change
 
@@ -23,14 +21,20 @@ Write “None” if there is no linked issue.
 
 ## Testing
 
-List the commands or manual steps you used to validate this change
-(e.g., `pytest`, `make test`, "Confirmed form submission in iOS Safari").
+Template smoke-test (main verification):
 
-- Commands / scripts executed:
-- Manual verification steps:
+- [ ] `copier copy --vcs-ref dev gh:stfukuda/python-package destination`
+- [ ] `cd destination`
+- [ ] Work inside the Dev Container (reopen or attach) so commands run there
+- [ ] `just setup`
+- [ ] `just sync`
+- [ ] `just format && just lint && just check && just test`
+- [ ] `just docs` / `just docs-serve`
+- [ ] `just build`
 
-- [ ] Tests cover the new/updated behavior
-- [ ] Manually tested (describe scenario, e.g., "Confirmed Safari submission"):
+Additional targeted tests (if any):
+
+- Mention other focused checks (e.g., `markdownlint README.md`).
 
 ## Checklist
 
@@ -38,4 +42,4 @@ List the commands or manual steps you used to validate this change
 - [ ] Tests added/updated or confirmed not needed
 - [ ] `pre-commit` / linters / formatters pass locally
 - [ ] Linked related issue(s) and added release note if breaking
-- [ ] Security/privacy impact considered (check only if applicable)
+- [ ] Security/privacy impact considered (if applicable)
