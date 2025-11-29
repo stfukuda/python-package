@@ -1,0 +1,73 @@
+{
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "other": "on",
+      "strings": "on"
+    },
+    "editor.tabSize": 2,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "files.trimTrailingWhitespace": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+      88
+    ],
+    "editor.tabSize": 4
+  },
+  "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.autoIndent": "keep",
+    "editor.defaultColorDecorators": "never",
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "comments": false,
+      "other": true,
+      "strings": true
+    },
+    "editor.tabSize": 2
+  },
+  "autoDocstring.docstringFormat": "google",
+  "autoDocstring.generateDocstringOnEnter": true,
+  "autoDocstring.startOnNewLine": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 4,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "mypy-type-checker.args": [
+    "--config-file",
+    "pyproject.toml"
+  ],
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/src/"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/src/"
+  ],
+  "python.formatting.provider": "none",
+  "python.terminal.activateEnvironment": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "ruff.configuration": "${workspaceFolder}/pyproject.toml",
+  "ruff.organizeImports": true
+}

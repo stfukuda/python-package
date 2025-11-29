@@ -2,10 +2,7 @@ set dotenv-load := true
 uv := env_var_or_default("UV", "uv")
 
 # Default recipe shows available commands
-default: help
-
-# Display available recipes
-help:
+_:
     @just --list --unsorted
 
 # Initialize git, create dev branch, install deps/hooks
@@ -16,7 +13,7 @@ setup:
             git init
         fi
         if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
-            git -c commit.gpgSign=false commit --allow-empty -m "Initial commit"
+            git commit --allow-empty -m "Initial commit"
         fi
         if git rev-parse --verify dev >/dev/null 2>&1; then
             git switch dev
@@ -25,7 +22,7 @@ setup:
         fi
         git add -A
         if ! git diff --cached --quiet; then
-            git -c commit.gpgSign=false commit -m "chore: scaffold project"
+            git commit -m "chore: scaffold project"
         fi
     else
         echo "git not found; skipping repository initialization."
@@ -34,7 +31,7 @@ setup:
     if command -v git >/dev/null 2>&1; then
         git add -A
         if ! git diff --cached --quiet; then
-            git -c commit.gpgSign=false commit -m "chore: sync dependencies"
+            git commit -m "chore: sync dependencies"
         fi
         prek install
     fi
@@ -64,7 +61,7 @@ update:
             fi
         done
         if ! git diff --cached --quiet; then
-            git -c commit.gpgSign=false commit -m "chore: refresh tooling"
+            git commit -m "chore: refresh tooling"
         else
             echo "No update-related changes to commit."
         fi
