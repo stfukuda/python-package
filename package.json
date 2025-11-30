@@ -1,0 +1,25 @@
+{
+  "name": "python-package",
+  "version": "1.0.0",
+  "description": "`python-package` is a Copier template that bootstraps a modern Python package with a single command. It ships with `uv` for dependency management, Ruff + mypy + Bandit for static analysis, pytest, Dev Container support, and PreK hooks so you can go from `copier copy` to CI-ready code immediately.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stfukuda/python-package.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/stfukuda/python-package/issues"
+  },
+  "homepage": "https://github.com/stfukuda/python-package#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0"
+  }
+}
