@@ -1,0 +1,13 @@
+# Node
+node_modules
+
+# Python virtualenvs/caches (when exercising tooling while editing)
+.venv
+.uv
+.ruff_cache
+.mypy_cache
+.pytest_cache
+.coverage
+
+# OS cruft
+.DS_Store
