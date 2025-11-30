@@ -28,12 +28,26 @@ setup:
         echo "git not found; skipping repository initialization."
     fi
     uv sync --all-groups
+    if command -v npm >/dev/null 2>&1; then
+        if [ ! -f package.json ]; then
+            npm init -y
+        fi
+        if [ -f package-lock.json ]; then
+            npm ci || npm install --save-dev @commitlint/cli @commitlint/config-conventional
+        else
+            npm install --save-dev @commitlint/cli @commitlint/config-conventional
+        fi
+    else
+        echo "npm not found; skipping commitlint dev dependencies."
+    fi
     if command -v git >/dev/null 2>&1; then
         git add -A
         if ! git diff --cached --quiet; then
             git commit -m "chore: sync dependencies"
         fi
         prek install
+    else
+        echo "git not found; skipping pre-commit installation."
     fi
     echo "Setup complete."
 
@@ -41,6 +55,15 @@ setup:
 sync:
     #!/usr/bin/env sh
     uv sync --all-groups
+    if command -v npm >/dev/null 2>&1; then
+        if [ -f package-lock.json ]; then
+            npm ci || npm install --save-dev @commitlint/cli @commitlint/config-conventional
+        else
+            npm install --save-dev @commitlint/cli @commitlint/config-conventional
+        fi
+    else
+        echo "npm not found; skipping commitlint dev dependencies."
+    fi
     if command -v git >/dev/null 2>&1; then
         prek install
     else

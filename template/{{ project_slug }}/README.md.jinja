@@ -27,6 +27,9 @@ Describe how to use the library in this section.
 - [Just](https://github.com/casey/just) task runner (optional but recommended)
 - [PreK](https://github.com/chriskuehl/prek) (`uv tool install prek`) if you run hooks
   outside the Dev Container
+- [Node.js](https://nodejs.org/) (optional; enables automatic install of commitlint
+  dev dependencies during `just setup`; if npm and no lockfile are present, `just sync`
+  will also create/update `package.json` and `package-lock.json`)
 
 > The Dev Container image installs `uv`, `just`, and `prek`, so host installation is
 > only needed if you plan to run the recipes outside the container.
@@ -87,13 +90,13 @@ just clean
 
 ### Release workflow
 
-- Formal release: create an annotated git tag like `v1.2.3` and push it.
-  `hatch-vcs` derives the package version from the tag during `uv build`, so you never
-  edit `pyproject.toml` manually.
-- Test release: create a pre-release tag such as `v1.2.3-dev.1`. The release workflow
-  publishes the build to TestPyPI using the `TEST_PYPI_API_TOKEN` secret.
-- Each release reuses the existing artifacts; ensure the secrets are configured before
-  tagging.
+- Releases are managed by release-please (`release-type: python`, starting at `v0.1.0`).
+  - On push to `main`, release-please opens a release PR.
+  - Merge the release PR to create the tag and GitHub Release with notes.
+- Publishing: when a tag is created, the publish workflow runs automatically:
+  - `vX.Y.Z` tags publish to PyPI (requires `PYPI_API_TOKEN`).
+  - `vX.Y.Z-dev.*` tags publish to TestPyPI (requires `TEST_PYPI_API_TOKEN`).
+- You never edit `pyproject.toml` version by hand; release-please updates it for you.
 
 ## Documentation
 
